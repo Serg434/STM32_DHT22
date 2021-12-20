@@ -110,14 +110,10 @@ int main(void)
     DHT_data d = DHT_getData(&DHT22_HW);
     temp = d.temp;
     hum = d.hum;
-    // sprintf(msg, "Temp %f°C, Hum %f\r\n", 1.1, 2.1);
-    sprintf(msg, "%f, %f\r\n", temp, hum);
-    // sprintf (msg, "%s %d %c", "one", 2, '3');
+    
+    sprintf(msg, "Temp %3.1f °C, Hum %3.1f %%\r\n", d.temp, d.hum);
     HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), 0xFF);
     HAL_Delay(1000);
-    // uint8_t str_lenght=12;
-    // uint8_t str_send[] = "Hello World\r";
-    // HAL_UART_Transmit(&huart2, str_send, str_lenght, 50);
   }
   /* USER CODE END 3 */
 }
