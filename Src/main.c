@@ -69,6 +69,7 @@ unsigned long tempDelay = 1000;
 unsigned long oldTempDelay;
 unsigned long oldBlinkDelay;
 unsigned long blinkDelay = 500;
+char charTemp[10] = "Temp";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -128,6 +129,7 @@ int main(void)
   HAL_ADC_Start(&hadc1);
   static DHT_sensor DHT22_HW = {DHT22_GPIO, DHT22_PIN, DHT22, 1};
   ST7735_Clear(COLOR565_SPRING_GREEN);
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -148,7 +150,7 @@ int main(void)
     // displayBlink();
 
     bright();
-    // ST7735_DrawChar(0, 0, 12, COLOR565_AQUA, COLOR565_DARK_RED);
+    ST7735_DrawChar7x11(10, 10, charTemp, COLOR565_AQUA, COLOR565_DARK_RED);
   }
   /* USER CODE END 3 */
 }
